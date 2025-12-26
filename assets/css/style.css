@@ -1,1 +1,137 @@
-body{background:#101820;color:#F5F7FA;font-family:system-ui;}
+
+:root{
+  --brand:#009ACE;
+  --dark:#101820;
+  --text:#F5F7FA;
+  --muted: rgba(245,247,250,.78);
+  --card: rgba(255,255,255,.06);
+  --border: rgba(255,255,255,.10);
+  --radius: 18px;
+  --max: 1120px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+  background: radial-gradient(1200px 600px at 10% -10%, rgba(0,154,206,.18), transparent 60%),
+              radial-gradient(900px 500px at 90% 0%, rgba(0,154,206,.10), transparent 55%),
+              var(--dark);
+  color: var(--text);
+  line-height: 1.45;
+}
+a{color:inherit;text-decoration:none}
+.container{max-width:var(--max);margin:0 auto;padding:0 20px}
+
+.nav{
+  position: sticky; top:0; z-index:50;
+  backdrop-filter: blur(10px);
+  background: rgba(16,24,32,.70);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;min-width:240px}
+.brand img{height:34px;width:auto;display:block}
+.brand span{font-weight:650;letter-spacing:.2px}
+
+.nav-links{display:flex;align-items:center;gap:10px}
+.nav-links a{
+  font-size:14px;
+  color: rgba(245,247,250,.86);
+  padding:8px 10px;
+  border-radius:12px;
+}
+.nav-links a:hover{background: rgba(255,255,255,.06)}
+.nav-links a.active{background: rgba(255,255,255,.08)}
+
+.nav-right{display:flex;align-items:center;gap:12px}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:10px 14px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.04);
+  font-size:14px;
+}
+.btn:hover{background: rgba(255,255,255,.06)}
+.btn-primary{
+  background: var(--brand);
+  border-color: rgba(0,154,206,.6);
+  color:#06131a;
+  font-weight:800;
+}
+.btn-primary:hover{filter:brightness(1.03)}
+
+.lang{display:flex;gap:8px;align-items:center}
+.lang a{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:26px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  padding:2px;
+}
+.lang a:hover{background: rgba(255,255,255,.07)}
+.lang a.active{outline:2px solid rgba(0,154,206,.70)}
+.lang img{
+  width:100%;height:100%;
+  object-fit:cover;
+  border-radius:8px;
+  display:block;
+}
+
+.hero{padding:70px 0 46px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;align-items:center}
+.kicker{color:rgba(245,247,250,.75);font-size:14px}
+.h1{font-size:44px;line-height:1.06;margin:12px 0 14px;letter-spacing:-.6px}
+.lead{color:rgba(245,247,250,.82);font-size:16px;max-width:62ch}
+.hero-actions{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+
+.section{padding:34px 0}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{
+  background: var(--card);
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  padding:18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.18);
+}
+.feature h3{margin:0 0 8px;font-size:16px}
+.feature p{margin:0;color:rgba(245,247,250,.78);font-size:14px}
+
+.page-title{padding:32px 0 12px}
+.page-title h1{margin:0;font-size:30px}
+.page-title p{margin:10px 0 0;color:rgba(245,247,250,.8)}
+
+.list ul{margin:0;padding-left:18px;color:rgba(245,247,250,.86)}
+.list li{margin:10px 0}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.contact-item small{color:rgba(245,247,250,.65)}
+.contact-item a{text-decoration:underline;text-decoration-color: rgba(0,154,206,.55)}
+
+.iframe-wrap{overflow:hidden}
+.iframe-wrap iframe{
+  width:100%;
+  height:780px;
+  border:0;
+  border-radius:16px;
+  background:#fff;
+}
+
+.footer{
+  padding:26px 0 38px;
+  color:rgba(245,247,250,.62);
+  border-top:1px solid rgba(255,255,255,.06);
+  margin-top:38px;
+}
+.footer-inner{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.footer a{opacity:.9}
+.footer a:hover{opacity:1}
+
+@media (max-width: 920px){
+  .hero-grid{grid-template-columns:1fr}
+  .h1{font-size:36px}
+  .grid-3{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
