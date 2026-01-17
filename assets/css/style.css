@@ -184,3 +184,57 @@ a{color:inherit;text-decoration:none}
 @media (prefers-reduced-motion: reduce){
   .nav, .nav::after, .nav-inner, .brand img, .nav-links a{transition:none !important}
 }
+/* Services cards grid */
+.svc-grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap:18px;
+}
+
+@media (max-width: 980px){
+  .svc-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px){
+  .svc-grid{ grid-template-columns: 1fr; }
+}
+
+.svc-card{
+  display:block;
+  padding:18px 18px 16px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.05);
+  backdrop-filter: blur(10px);
+  text-decoration:none;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.svc-card h3{
+  margin:0 0 8px;
+  font-size:18px;
+  line-height:1.25;
+}
+
+.svc-card p{
+  margin:0 0 12px;
+  opacity:.85;
+}
+
+.svc-link{
+  display:inline-flex;
+  align-items:center;
+  font-weight:600;
+  opacity:.95;
+}
+
+.svc-card:hover{
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,.18);
+  box-shadow: 0 14px 35px rgba(0,0,0,.28);
+  background: rgba(255,255,255,.07);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .svc-card{ transition:none; }
+  .svc-card:hover{ transform:none; }
+}
