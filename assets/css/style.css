@@ -22,38 +22,6 @@ body{
   line-height: 1.45;
 }
 
-/* =========================
-   Homepage-only background
-========================= */
-body.home-page{
-  background-image: url("../img/home-bg.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: var(--dark);
-  background-attachment: fixed;
-}
-
-body.home-page::before{
-  content:"";
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.55);
-  pointer-events: none;
-  z-index: 0;
-}
-
-body.home-page .nav,
-body.home-page main,
-body.home-page .footer{
-  position: relative;
-  z-index: 1;
-}
-
-@media (max-width: 920px){
-  body.home-page{ background-attachment: scroll; }
-}
-
 a{color:inherit;text-decoration:none}
 .container{max-width:var(--max);margin:0 auto;padding:0 20px}
 
@@ -223,6 +191,66 @@ a{color:inherit;text-decoration:none}
 .hero-actions{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
 
 /* =========================
+   Homepage hero background (LIKE screenshot)
+   Applies ONLY when <body class="home-page">
+========================= */
+body.home-page{
+  background: var(--dark); /* avoid competing gradients behind hero image */
+}
+
+body.home-page .hero{
+  position: relative;
+  min-height: calc(100vh - 90px); /* adjust if your header height changes */
+  display: flex;
+  align-items: center;
+  padding: 90px 0 70px;
+
+  /* Background image for the hero only */
+  background-image: url("../img/home-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  /* Push chair/table visually to the right */
+  background-position: 75% 55%;
+}
+
+/* Dark-to-clear overlay: readable text on left, visible image on right */
+body.home-page .hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,.78) 0%,
+    rgba(0,0,0,.58) 35%,
+    rgba(0,0,0,.24) 65%,
+    rgba(0,0,0,.10) 100%
+  );
+  pointer-events:none;
+  z-index:0;
+}
+
+body.home-page .hero > .container{
+  position: relative;
+  z-index: 1;
+}
+
+/* Make homepage hero text block sit left and stack like screenshot */
+body.home-page .hero-grid{
+  grid-template-columns: 1fr;
+}
+
+body.home-page .h1{
+  max-width: 18ch;
+  font-size: 54px;
+  line-height: 1.02;
+}
+
+body.home-page .lead{
+  max-width: 44ch;
+}
+
+/* =========================
    Sections / Cards
 ========================= */
 .section{padding:34px 0}
@@ -347,6 +375,17 @@ a{color:inherit;text-decoration:none}
   .brand{min-width:auto}
   .brand img{height:86px}
   .nav.is-scrolled .brand img{height:66px}
+
+  /* homepage hero adjustments on mobile */
+  body.home-page .hero{
+    min-height: auto;
+    padding: 70px 0 50px;
+    background-position: 65% 55%;
+  }
+  body.home-page .h1{
+    font-size: 40px;
+    max-width: 22ch;
+  }
 }
 
 @media (max-width: 640px){
