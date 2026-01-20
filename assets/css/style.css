@@ -22,6 +22,38 @@ body{
   line-height: 1.45;
 }
 
+/* =========================
+   Homepage-only background
+========================= */
+body.home-page{
+  background-image: url("../img/home-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--dark);
+  background-attachment: fixed;
+}
+
+body.home-page::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.home-page .nav,
+body.home-page main,
+body.home-page .footer{
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 920px){
+  body.home-page{ background-attachment: scroll; }
+}
+
 a{color:inherit;text-decoration:none}
 .container{max-width:var(--max);margin:0 auto;padding:0 20px}
 
