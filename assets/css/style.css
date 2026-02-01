@@ -392,8 +392,8 @@ body.home-page .h1{
   body.home-page .hero{
     min-height: auto;
     padding: 70px 0 50px;
-    background-position: 72% 55%;
-    background-size: 120% auto; /* mobile needs bigger fill */
+    background-position: 50% 56%;
+    background-size: 70% auto; /* mobile needs bigger fill */
   }
 
   body.home-page .hero > .container{
