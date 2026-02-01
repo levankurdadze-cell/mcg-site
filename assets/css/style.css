@@ -246,7 +246,7 @@ body.home-page .hero > .container{
   z-index: 1;
 
   /* Bring text a bit closer to the left edge (less "centred" feel) */
-  padding-left: 14px;
+  padding-left: 10px;
 }
 
 /* Make homepage hero text block sit left and stack like screenshot */
