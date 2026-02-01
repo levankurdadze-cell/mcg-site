@@ -114,7 +114,7 @@ a{color:inherit;text-decoration:none}
   gap:12px;
 }
 
-/* Premium sticky behaviour: tighter after scroll */
+/* Sticky behaviour after scroll */
 .nav.is-scrolled{
   background: rgba(16,24,32,.86);
   border-bottom: 1px solid rgba(255,255,255,.10);
@@ -181,7 +181,7 @@ a{color:inherit;text-decoration:none}
 }
 
 /* =========================
-   Hero
+   Hero (generic)
 ========================= */
 .hero{padding:70px 0 46px}
 .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;align-items:center}
@@ -206,9 +206,13 @@ body.home-page .hero{
   padding: 90px 0 70px;
 
   background-image: url("../img/home-bg.png");
-  background-size: 92% auto;          /* zoom out (chair/table smaller) */
   background-repeat: no-repeat;
-  background-position: 78% 58%;
+
+  /* MORE zoom out */
+  background-size: 80% auto;
+
+  /* Keep chair/table to the right */
+  background-position: 82% 56%;
 }
 
 body.home-page .hero::before{
@@ -226,37 +230,41 @@ body.home-page .hero::before{
   z-index:0;
 }
 
+/* IMPORTANT: make hero container full-width and left anchored (not centred) */
 body.home-page .hero > .container{
   position: relative;
   z-index: 1;
-  padding-left: 14px;
+
+  max-width: none;
+  width: 100%;
+  margin-left: 0;
+  margin-right: auto;
+
+  padding-left: 48px;
+  padding-right: 20px;
 }
 
-/* Left-align content */
+/* Left-align content in homepage hero */
 body.home-page .hero-grid{
   grid-template-columns: 1fr;
   justify-items: start;
 }
 
-/* Wider text block so each line stays on one line more easily */
 body.home-page .hero-grid > div{
-  max-width: 760px;
-  margin-right: auto;
+  max-width: 900px;   /* wider block so each <br> line fits */
+  margin: 0;
 }
 
-body.home-page .hero-actions{
-  justify-content: flex-start;
+body.home-page .h1,
+body.home-page .lead{
+  text-align: left;
 }
 
-/* Slightly smaller than before so Georgian lines don’t wrap */
+/* Keep 3 lines as 3 lines (avoid wrapping inside a line) */
 body.home-page .h1{
   max-width: none;
-  font-size: 52px;
-  line-height: 1.02;
-}
-
-body.home-page .lead{
-  max-width: 52ch;
+  font-size: 48px;
+  line-height: 1.05;
 }
 
 /* =========================
@@ -285,7 +293,7 @@ body.home-page .lead{
 .page-title h1{margin:0;font-size:30px}
 .page-title p{margin:10px 0 0;color:rgba(245,247,250,.8)}
 
-/* Lists (used on some pages) */
+/* Lists */
 .list ul{margin:0;padding-left:18px;color:rgba(245,247,250,.86)}
 .list li{margin:10px 0}
 
@@ -384,17 +392,18 @@ body.home-page .lead{
   body.home-page .hero{
     min-height: auto;
     padding: 70px 0 50px;
-    background-position: 65% 55%;
-    background-size: 120% auto;
-  }
-
-  body.home-page .h1{
-    font-size: 40px;
-    max-width: 22ch;
+    background-position: 72% 55%;
+    background-size: 120% auto; /* mobile needs bigger fill */
   }
 
   body.home-page .hero > .container{
     padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  body.home-page .h1{
+    font-size: 40px;
+    line-height: 1.06;
   }
 }
 
